@@ -1,0 +1,21 @@
+filebeat.inputs:
+- type: filestream
+  id: my-filestream-id
+  enabled: true
+  paths:
+    - /var/log/*.log
+    - /home/kayleyg/fb_file
+
+output.logstash:
+  hosts: ["pssid-metrics.miserver.it.umich.edu:9400"]
+
+logging.level: debug
+logging.to_files: true
+logging.json: true
+logging.files:
+  path: '/var/log/filebeat'
+  name: 'filebeat.log'
+  keepfiles: 7
+  permissions: 0644
+
+
