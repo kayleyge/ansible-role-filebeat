@@ -12,6 +12,7 @@
     url: https://artifacts.elastic.co/GPG-KEY-elasticsearch
     state: present
 
+# need elastic to install filebeat
 - name: Add Elastic APT repository
   apt_repository:
     repo: "deb https://artifacts.elastic.co/packages/7.x/apt stable main"
@@ -23,7 +24,6 @@
   ansible.builtin.apt:
     name: filebeat
     state: present
-    update_cache: yes
 
 - name: Copy Filebeat configuration
   ansible.builtin.template:
